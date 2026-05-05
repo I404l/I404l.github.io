@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I404l</title>
+    <style>
+        body {
+            background-color: #f4f1ea; 
+            color: #333;
+            font-family: 'Courier New', Courier, monospace; 
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            border-left: 2px solid #333; 
+            padding-left: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        a {
+            color: #333;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            background-color: #ddd;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #777;
+            border-top: 1px dashed #ccc;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>I404l</h1>
+            <p class="subtitle">Header</p>
+        </header>
+
+        <!-- Inhalt -->
+        <section class="section">
+            <p>Hallo!</p>
+            <p>Hallo2</p>
+            
+            <ul>
+                <li><a href="#">Über mich</a></li>
+                <li><a href="#">Projekte</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made by I404l | &copy; <span id="year"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
