@@ -1,90 +1,438 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I404l</title>
-    <style>
-        body {
-            background-color: #f4f1ea; 
-            color: #333;
-            font-family: 'Courier New', Courier, monospace; 
-            line-height: 1.6;
-            margin: 0;
-            padding: 2rem;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leon — Netzwerk &amp; Security</title>
+<meta name="description" content="Portfolio von Leon: Netzwerk-, Security- und Systemadministration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0e13;
+    --panel: rgba(20, 25, 33, 0.72);
+    --rule: #2a313d;
+    --text: #e8e6e0;
+    --muted: #8a93a1;
+    --accent: #e3a73b;
+  }
 
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            border-left: 2px solid #333; 
-            padding-left: 1.5rem;
-        }
+  *{ box-sizing: border-box; }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-        }
+  html{ scroll-behavior: smooth; }
 
-        .subtitle {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        a {
-            color: #333;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
+  #net{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+  }
 
-        a:hover {
-            background-color: #ddd;
-        }
+  main, footer{
+    position: relative;
+    z-index: 1;
+  }
 
-        .section {
-            margin-bottom: 2rem;
-        }
+  .hero{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 24px;
+    pointer-events: none;
+  }
 
-        footer {
-            margin-top: 3rem;
-            font-size: 0.85rem;
-            color: #777;
-            border-top: 1px dashed #ccc;
-            padding-top: 1rem;
-        }
-    </style>
+  .hero > *{ pointer-events: auto; }
+
+  .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 26px;
+  }
+
+  .tag i{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(227, 167, 59, 0.15);
+  }
+
+  h1{
+    font-size: clamp(44px, 9vw, 92px);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    margin: 0 0 22px;
+  }
+
+  .sub{
+    max-width: 46ch;
+    color: var(--muted);
+    font-size: clamp(16px, 2vw, 19px);
+    margin: 0 0 40px;
+  }
+
+  .buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .btn{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    padding: 12px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: rgba(11, 14, 19, 0.6);
+    backdrop-filter: blur(6px);
+    transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  }
+
+  .btn:hover{
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .btn.main{
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #14110a;
+    font-weight: 500;
+  }
+
+  .btn.main:hover{
+    color: #14110a;
+    filter: brightness(1.08);
+  }
+
+  .projects{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 110px 24px 90px;
+  }
+
+  .projects h2{
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
+
+  .projects .lead{
+    color: var(--muted);
+    margin: 0 0 40px;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card{
+    background: var(--panel);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 26px;
+    transition: border-color 0.2s ease;
+  }
+
+  .card:hover{ border-color: #4a5463; }
+
+  .card h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+
+  .card p{
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 18px;
+  }
+
+  .chips{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .chips span{
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+
+  .stack{
+    margin-top: 56px;
+  }
+
+  .stack h3{
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+
+  footer{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 28px 24px 56px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  footer a{ color: inherit; text-decoration: none; }
+  footer a:hover{ color: var(--accent); }
+
+  @media (max-width: 700px){
+    .grid{ grid-template-columns: 1fr; }
+    .btn{ padding: 11px 18px; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>I404l</h1>
-            <p class="subtitle">Header</p>
-        </header>
+<canvas id="net" aria-hidden="true"></canvas>
 
-        <!-- Inhalt -->
-        <section class="section">
-            <p>Hallo!</p>
-            <p>Hallo2</p>
-            
-            <ul>
-                <li><a href="#">Über mich</a></li>
-                <li><a href="#">Projekte</a></li>
-                <li><a href="#">Kontakt</a></li>
-            </ul>
-        </section>
+<main>
+  <section class="hero">
+    <div class="tag"><i></i>Hamburg, Deutschland</div>
+    <h1>Leon</h1>
+    <p class="sub">Netzwerk- und Security-Administrator mit Schwerpunkt auf verteilter Infrastruktur, Firewalling und Systembetrieb.</p>
+    <div class="buttons">
+      <a class="btn main" href="#projekte">Projekte</a>
+      <a class="btn" href="https://www.linkedin.com/in/leon-nentwig-6080971b2" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://discord.com/users/datachaos" target="_blank" rel="noopener">Discord</a>
+      <a class="btn" href="https://github.com/I404l" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>Made by I404l | &copy; <span id="year"></span></p>
-        </footer>
+  <section class="projects" id="projekte">
+    <h2>Projekte</h2>
+    <p class="lead">Ausgewählte Projekte aus Netzwerk, Security und Systembetrieb.</p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Netzwerk-Migration auf eBGP</h3>
+        <p>Umstellung der Standortvernetzung auf redundantes Hub-Spoke-Routing mit automatischem Failover.</p>
+        <div class="chips"><span>eBGP</span><span>IPsec</span><span>Hochverfügbarkeit</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Monitoring-Dashboard</h3>
+        <p>Eigenentwickeltes Dashboard zur zentralen Überwachung aller Standorte.</p>
+        <div class="chips"><span>Docker</span><span>Node.js</span></div>
+      </article>
+
+      <article class="card">
+        <h3>MFA-Einführung</h3>
+        <p>Rollout der Multi-Faktor-Authentifizierung an allen Standorten, inklusive Notfallzugang.</p>
+        <div class="chips"><span>MFA</span><span>IAM</span><span>Security</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Container-Plattform</h3>
+        <p>Aufbau und Betrieb einer internen Plattform für Dokumentation, Passwortverwaltung und Automatisierung.</p>
+        <div class="chips"><span>Docker</span><span>Selfhosting</span></div>
+      </article>
     </div>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <div class="stack">
+      <h3>stack</h3>
+      <div class="chips">
+        <span>Sophos XGS</span><span>Aruba</span><span>eBGP</span><span>IPsec</span><span>VMware ESXi</span><span>SAN</span><span>Docker</span><span>Veeam</span><span>Vaultwarden</span><span>PowerShell</span><span>Gitea</span><span>n8n</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© Leon</span>
+  <a href="https://github.com/I404l" target="_blank" rel="noopener">github.com/I404l</a>
+</footer>
+
+<script>
+  var canvas = document.getElementById('net');
+  var ctx = canvas.getContext('2d');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var w = 0, h = 0, nodes = [];
+  var pointer = { x: -9999, y: -9999, on: false };
+
+  var LINK = 135;
+  var REACH = 190;
+
+  function build(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var count = Math.round(Math.min(130, Math.max(36, (w * h) / 15000)));
+    nodes = [];
+    for(var i = 0; i < count; i++){
+      var bx = (Math.random() - 0.5) * 0.45;
+      var by = (Math.random() - 0.5) * 0.45;
+      nodes.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        bx: bx, by: by,
+        vx: bx, vy: by,
+        r: 1.2 + Math.random() * 1.6
+      });
+    }
+  }
+
+  function update(){
+    for(var i = 0; i < nodes.length; i++){
+      var n = nodes[i];
+
+      if(pointer.on){
+        var dx = pointer.x - n.x;
+        var dy = pointer.y - n.y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if(d < REACH && d > 1){
+          var pull = (1 - d / REACH) * 0.045;
+          n.vx += (dx / d) * pull;
+          n.vy += (dy / d) * pull;
+        }
+      }
+
+      n.vx = n.vx * 0.97 + n.bx * 0.03;
+      n.vy = n.vy * 0.97 + n.by * 0.03;
+
+      n.x += n.vx;
+      n.y += n.vy;
+
+      if(n.x < -20) n.x = w + 20;
+      if(n.x > w + 20) n.x = -20;
+      if(n.y < -20) n.y = h + 20;
+      if(n.y > h + 20) n.y = -20;
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 1;
+
+    for(var i = 0; i < nodes.length; i++){
+      var a = nodes[i];
+
+      for(var j = i + 1; j < nodes.length; j++){
+        var b = nodes[j];
+        var dx = a.x - b.x;
+        var dy = a.y - b.y;
+        var d2 = dx * dx + dy * dy;
+        if(d2 < LINK * LINK){
+          var alpha = (1 - Math.sqrt(d2) / LINK) * 0.28;
+          ctx.strokeStyle = 'rgba(138,147,161,' + alpha + ')';
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+
+      if(pointer.on){
+        var px = a.x - pointer.x;
+        var py = a.y - pointer.y;
+        var pd = Math.sqrt(px * px + py * py);
+        if(pd < REACH){
+          ctx.strokeStyle = 'rgba(227,167,59,' + (1 - pd / REACH) * 0.75 + ')';
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(pointer.x, pointer.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for(var k = 0; k < nodes.length; k++){
+      var n = nodes[k];
+      var near = pointer.on && Math.hypot(n.x - pointer.x, n.y - pointer.y) < REACH;
+      ctx.fillStyle = near ? 'rgba(227,167,59,0.95)' : 'rgba(168,176,189,0.55)';
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    if(pointer.on){
+      ctx.strokeStyle = 'rgba(227,167,59,0.9)';
+      ctx.beginPath();
+      ctx.arc(pointer.x, pointer.y, 5, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+  }
+
+  function loop(){
+    update();
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  window.addEventListener('pointermove', function(e){
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+    pointer.on = true;
+  });
+
+  window.addEventListener('pointerup', function(e){
+    if(e.pointerType !== 'mouse') pointer.on = false;
+  });
+
+  document.addEventListener('pointerleave', function(){ pointer.on = false; });
+  window.addEventListener('blur', function(){ pointer.on = false; });
+
+  window.addEventListener('resize', function(){
+    build();
+    if(still) draw();
+  });
+
+  build();
+
+  if(still){
+    draw();
+  } else {
+    loop();
+  }
+</script>
 
 </body>
 </html>
