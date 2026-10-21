@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leon — Netzwerk &amp; Security</title>
-<meta name="description" content="Portfolio von Leon: Netzwerk-, Security- und Systemadministration.">
+<title>Leon — Network &amp; Security</title>
+<meta name="description" content="Leon's portfolio: network, security and systems administration.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -161,6 +161,24 @@
 
   .card:hover{ border-color: #4a5463; }
 
+  .card.wide{
+    grid-column: 1 / -1;
+    padding: 34px 34px 32px;
+    border-color: #3a4352;
+  }
+
+  .card.wide h3{
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+
+  .card.wide p{
+    font-size: 16.5px;
+    max-width: 72ch;
+    margin-bottom: 22px;
+  }
+
   .card h3{
     font-size: 18px;
     font-weight: 600;
@@ -229,51 +247,51 @@
 
 <main>
   <section class="hero">
-    <div class="tag"><i></i>Hamburg, Deutschland</div>
+    <div class="tag"><i></i>Hamburg, Germany</div>
     <h1>Leon</h1>
-    <p class="sub">Netzwerk- und Security-Administrator mit Schwerpunkt auf verteilter Infrastruktur, Firewalling und Systembetrieb.</p>
+    <p class="sub">Network and security administrator focused on distributed infrastructure, firewalling and systems operations.</p>
     <div class="buttons">
-      <a class="btn main" href="#projekte">Projekte</a>
+      <a class="btn main" href="#projects">Projects</a>
       <a class="btn" href="https://www.linkedin.com/in/leon-nentwig-6080971b2" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://discord.com/users/datachaos" target="_blank" rel="noopener">Discord</a>
+      <a class="btn" href="https://discord.com/users/datachaos target="_blank" rel="noopener">Discord</a>
       <a class="btn" href="https://github.com/I404l" target="_blank" rel="noopener">GitHub</a>
     </div>
   </section>
 
-  <section class="projects" id="projekte">
-    <h2>Projekte</h2>
-    <p class="lead">Ausgewählte Projekte aus Netzwerk, Security und Systembetrieb.</p>
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+    <p class="lead">Selected projects in networking, security and systems operations.</p>
 
     <div class="grid">
-      <article class="card">
-        <h3>Netzwerk-Migration auf eBGP</h3>
-        <p>Umstellung der Standortvernetzung auf redundantes Hub-Spoke-Routing mit automatischem Failover.</p>
-        <div class="chips"><span>eBGP</span><span>IPsec</span><span>Hochverfügbarkeit</span></div>
+      <article class="card wide">
+        <h3>Containerization of applications and development environments</h3>
+        <p>Built and operate a production container platform internal applications as well as development and test environments. Configuration as code in Git (GitOps), centralized logging and persistent data storage ensure reproducible deployments and stable, maintainable operations.</p>
+        <div class="chips"><span>Docker</span><span>GitOps</span><span>Infrastructure as code</span><span>Centralized logging</span></div>
       </article>
 
       <article class="card">
-        <h3>Monitoring-Dashboard</h3>
-        <p>Eigenentwickeltes Dashboard zur zentralen Überwachung aller Standorte.</p>
+        <h3>Modernized multi-site connectivity with eBGP</h3>
+        <p>Designed and implemented redundant hub-spoke routing across more than 20 sites. Result: automatic failover and significantly higher availability.</p>
+        <div class="chips"><span>eBGP</span><span>IPsec</span><span>High availability</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Unified VLAN and zone architecture</h3>
+        <p>Standardized the VLAN scheme and firewall zone architecture across all sites. Result: consistent segmentation and significantly simpler administration.</p>
+        <div class="chips"><span>VLAN</span><span>Network segmentation</span><span>Firewall zones</span></div>
+      </article>
+
+      <article class="card">
+        <h3>Centralized site monitoring</h3>
+        <p>Built a custom monitoring dashboard that brings the status of every site into one view and speeds up troubleshooting.</p>
         <div class="chips"><span>Docker</span><span>Node.js</span></div>
-      </article>
-
-      <article class="card">
-        <h3>MFA-Einführung</h3>
-        <p>Rollout der Multi-Faktor-Authentifizierung an allen Standorten, inklusive Notfallzugang.</p>
-        <div class="chips"><span>MFA</span><span>IAM</span><span>Security</span></div>
-      </article>
-
-      <article class="card">
-        <h3>Container-Plattform</h3>
-        <p>Aufbau und Betrieb einer internen Plattform für Dokumentation, Passwortverwaltung und Automatisierung.</p>
-        <div class="chips"><span>Docker</span><span>Selfhosting</span></div>
       </article>
     </div>
 
     <div class="stack">
-      <h3>stack</h3>
+      <h3>core skills</h3>
       <div class="chips">
-        <span>Sophos XGS</span><span>Aruba</span><span>eBGP</span><span>IPsec</span><span>VMware ESXi</span><span>SAN</span><span>Docker</span><span>Veeam</span><span>Vaultwarden</span><span>PowerShell</span><span>Gitea</span><span>n8n</span>
+        <span>Network design &amp; routing</span><span>Firewalling &amp; VPN</span><span>IT security &amp; MFA</span><span>Virtualization</span><span>Containers &amp; Docker</span><span>Backup &amp; recovery</span><span>Monitoring</span><span>Automation</span>
       </div>
     </div>
   </section>
