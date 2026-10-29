@@ -238,7 +238,7 @@
   /* list view */
 
   .lv{
-    height: 178px;
+    height: 200px;
     overflow: auto;
     background: #fff;
     box-shadow: var(--sunken);
@@ -554,6 +554,7 @@
     .field{ grid-template-columns: 62px minmax(0, 1fr); }
     .skills{ columns: 1; }
     .panel{ padding: 10px; min-height: 0; }
+    .desc{ height: 168px; }
     .task{ width: 0; flex: 1; }
     .btn{ min-width: 0; flex: 1 1 calc(50% - 8px); }
     .btns{ width: 100%; }
@@ -587,7 +588,7 @@
       <div class="panel">
         <div role="tabpanel" id="p-info" aria-labelledby="t-info">
           <div class="field"><label for="f-name">Name</label><input id="f-name" readonly value="I404l"></div>
-          <div class="field"><label for="f-alias">Alias</label><input id="f-alias" readonly value="datachaos, leon"></div>
+          <div class="field"><label for="f-alias">Alias</label><input id="f-alias" readonly value="datachaos &amp; leon"></div>
           <div class="field"><label for="f-loc">Location</label><input id="f-loc" readonly value="Hamburg, Germany"></div>
           <fieldset>
             <legend>Description</legend>
@@ -610,6 +611,60 @@
             <div class="lv-r" role="option" id="r3" aria-selected="false" data-desc="Built a custom monitoring dashboard (Node.js, containerized) that aggregates the status of all sites into a single view. Outages are spotted immediately and narrowed down to the affected site and component, reducing time to diagnosis.">
               <span title="Centralized multi-site monitoring">Centralized multi-site monitoring</span><span>Docker, Node.js</span><span>Current project</span>
             </div>
+            <div class="lv-r" role="option" id="r4" aria-selected="false" data-desc="Moving firewall, switch and container configuration into version control with peer review and pipeline-based deployment, so every change is traceable, reproducible and reversible.">
+              <span title="Infrastructure as code and Git-based workflows">Infrastructure as code and Git-based workflows</span><span>Git, CI/CD, Secrets management</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r5" aria-selected="false" data-desc="Rolling out rules, objects, NAT and VPN settings from Git instead of the console: dry-run diffs, approval before execution, an automatic backup ahead of every run and a tested rollback path. Built on a cleaned-up, standardized rule base.">
+              <span title="Firewall deployment automation">Firewall deployment automation</span><span>Infrastructure as code, APIs, Policy standards</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r6" aria-selected="false" data-desc="Template-based switch configuration per site type, daily configuration backups into Git and drift detection, so deviations from the standard are found early and rollouts are repeatable.">
+              <span title="Switch configuration automation">Switch configuration automation</span><span>Templates, Config backup, Drift detection</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r7" aria-selected="false" data-desc="Golden images and automated provisioning for new servers, including baseline hardening and automatic enrollment in backup and monitoring. Scheduled patch windows with test groups, reporting and rollback make updates predictable and verifiable.">
+              <span title="Server provisioning and patch management">Server provisioning and patch management</span><span>Golden images, Hardening, Patch automation</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r8" aria-selected="false" data-desc="Recovery strategy designed to survive a ransomware attack: immutable backups, an isolated backup network, offsite copies, documented restore runbooks and regular restore tests against agreed recovery times.">
+              <span title="Ransomware-resilient backup strategy">Ransomware-resilient backup strategy</span><span>Immutable backups, Network isolation, Restore testing</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r9" aria-selected="false" data-desc="Disaster recovery concepts for business-critical applications and the organization as a whole: dependency mapping, recovery time and data-loss targets, failure scenarios, emergency runbooks and regular exercises.">
+              <span title="Disaster recovery and business continuity">Disaster recovery and business continuity</span><span>Business impact analysis, Runbooks, Failover tests</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r10" aria-selected="false" data-desc="A zone model and segmentation matrix for all sites, port-based access control and micro-segmentation of critical servers, so a compromised device cannot move freely through the network.">
+              <span title="Zero-trust network segmentation">Zero-trust network segmentation</span><span>802.1X, NAC, Micro-segmentation</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r11" aria-selected="false" data-desc="Security architecture that separates office IT from production and operational technology: a DMZ based on the Purdue model, hardened remote maintenance, monitoring and compensating controls for systems that cannot be patched.">
+              <span title="IT/OT security architecture">IT/OT security architecture</span><span>DMZ, Purdue model, Secure remote access</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r12" aria-selected="false" data-desc="Hardening of cloud identities and administrative access: conditional access, consistent MFA, separated admin accounts, jump hosts and a central secrets vault, designed to stay practical in daily operations.">
+              <span title="Identity and privileged access hardening">Identity and privileged access hardening</span><span>Conditional access, MFA, Privileged access</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r13" aria-selected="false" data-desc="Regular scans, risk-based prioritization and a remediation process with deadlines, aligned with hardening baselines. Scans in sensitive environments are run with extra care.">
+              <span title="Vulnerability and configuration management">Vulnerability and configuration management</span><span>Vulnerability scanning, Hardening baselines</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r14" aria-selected="false" data-desc="Central log collection for firewalls, switches and servers with a retention concept, dashboards and alerting, as the foundation for detecting and correlating security events.">
+              <span title="Central logging and SIEM">Central logging and SIEM</span><span>Log management, SIEM, Alerting</span><span>In progress</span>
+            </div>
+            <div class="lv-r" role="option" id="r15" aria-selected="false" data-desc="Web filtering, application control and TLS inspection at the network edge, combined with a health exchange between endpoints and firewall that automatically restricts compromised devices. Endpoint policies are reviewed and cleaned up.">
+              <span title="Web security and endpoint protection">Web security and endpoint protection</span><span>Web filter, Application control, Endpoint protection</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r16" aria-selected="false" data-desc="Audit and cleanup of all site-to-site tunnels: fixing mismatched subnets, proposals and lifetimes, removing legacy tunnels, one standard template and continuous tunnel monitoring.">
+              <span title="Site-to-site tunnel standardization">Site-to-site tunnel standardization</span><span>IPsec, Standard templates, Tunnel monitoring</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r17" aria-selected="false" data-desc="Modernized user VPN with multi-factor authentication for all users, hostname-based gateways per site, certificate management and a clean client rollout. Includes an evaluation of a clientless option for narrowly defined use cases.">
+              <span title="Remote access with MFA">Remote access with MFA</span><span>SSL VPN, MFA, Certificates, DNS</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r18" aria-selected="false" data-desc="Dedicated zones for IoT, camera and access-control devices with least-privilege firewall rules per device group, keeping low-trust devices apart from office and server networks.">
+              <span title="Network zones for IoT, cameras and access control">Network zones for IoT, cameras and access control</span><span>VLAN, Firewall policy, Least privilege</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r19" aria-selected="false" data-desc="Migrating the on-premises mail platform to the cloud: migration path, mail flow and authentication, mailbox migration, third-party senders such as scanners and applications, and decommissioning of the old servers.">
+              <span title="Email platform migration to the cloud">Email platform migration to the cloud</span><span>Cloud email, Hybrid migration, Mail flow</span><span>In progress</span>
+            </div>
+            <div class="lv-r" role="option" id="r20" aria-selected="false" data-desc="Move of site telephony to a cloud PBX: inventory of systems and numbers, a pilot group with a softphone client, number porting, QoS and failover design, site-by-site migration and removal of legacy systems.">
+              <span title="Cloud telephony migration">Cloud telephony migration</span><span>Cloud PBX, VoIP, QoS</span><span>Planned</span>
+            </div>
+            <div class="lv-r" role="option" id="r21" aria-selected="false" data-desc="Move of public web servers to a new virtualization platform together with an external provider: DMZ connection, firewall rules, backup and monitoring, a tested rollback path, plus an evaluation of IPv6 dual-stack in the DMZ.">
+              <span title="Web hosting migration and IPv6 evaluation">Web hosting migration and IPv6 evaluation</span><span>Virtualization, DMZ, Reverse proxy, IPv6</span><span>Planned</span>
+            </div>
           </div>
           <div class="desc" id="desc" aria-live="polite"></div>
         </div>
@@ -630,6 +685,14 @@
               <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Backup &amp; recovery</label></li>
               <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Monitoring</label></li>
               <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Automation</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Routing &amp; VPN (eBGP, IPsec, SSL VPN)</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Zero trust &amp; network segmentation</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Identity &amp; access management</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Disaster recovery &amp; business continuity</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Infrastructure as code &amp; CI/CD</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Logging &amp; SIEM</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>Vulnerability &amp; patch management</label></li>
+              <li><label class="chk"><input type="checkbox" checked tabindex="-1" onclick="return false"><span class="box"></span>VoIP &amp; unified communications</label></li>
             </ul>
           </fieldset>
         </div>
@@ -652,7 +715,6 @@
     <footer class="status">
       <div class="marq" aria-hidden="true"><span>Network and security administrator responsible for designing and operating network architecture, firewall solutions and distributed infrastructure.   +++   Hamburg, Germany   +++   aka. datachaos &amp; leon   +++</span></div>
       <div>© Leon</div>
-      <div><a href="index.html">i use Arch btw</a></div>
     </footer>
   </section>
 </main>
@@ -664,8 +726,6 @@
     <li><a href="https://www.linkedin.com/in/leon-nentwig-6080971b2" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="https://discord.com/users/datachaos" target="_blank" rel="noopener">Discord</a></li>
     <li><a href="https://github.com/I404l" target="_blank" rel="noopener">GitHub</a></li>
-    <li class="line" aria-hidden="true"></li>
-    <li><a href="impressum.html">Impressum</a></li>
   </ul>
 </div>
 
